@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mi Portafolio</title>
-</head>
-<body>
-  <h1>Hola, soy Yhojan 👋</h1>
-  <p>Bienvenido a mi portafolio</p>
+// Formulario de contacto
+const form = document.getElementById('contactForm');
+const response = document.getElementById('formResponse');
 
-  <h2>Mis proyectos</h2>
-  <ul>
-    <li>Proyecto 1</li>
-    <li>Proyecto 2</li>
-  </ul>
-</body>
-</html>
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    if(name && email && message){
+        response.textContent = `Gracias ${name}, tu mensaje ha sido enviado!`;
+        form.reset();
+    } else {
+        response.textContent = "Por favor completa todos los campos.";
+    }
+});
